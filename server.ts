@@ -46,7 +46,7 @@ function resolveContextCap(providerName: string, modelName: string | undefined):
 // ─── Plugin entry ────────────────────────────────────────────────────
 
 export default async function plugin(bb: RiftPluginApi) {
-  bb.log.info("bb-plugin-headroom loaded");
+  bb.log.info("rift-plugin-headroom loaded");
 
   // Settings are string/boolean/select only — parse thresholds from strings
   const settings = bb.settings.define({
@@ -231,6 +231,6 @@ export default async function plugin(bb: RiftPluginApi) {
 
   bb.onDispose(() => {
     lastWarned.clear();
-    bb.log.info("bb-plugin-headroom disposed");
+    bb.log.info("rift-plugin-headroom disposed");
   });
 }
