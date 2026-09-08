@@ -11,7 +11,7 @@
 // Also runs a log-based background monitor that tracks per-thread context
 // usage and logs when a thread crosses the warning threshold. The monitor
 // writes to the plugin log only — it does not inject messages into threads.
-import { type BbPluginApi } from "@get-bb/plugin-sdk";
+import { type RiftPluginApi } from "@riftlabs/plugin-sdk";
 import { z } from "zod";
 
 // ─── Model context caps (fallback defaults — real usage events override) ───
@@ -45,7 +45,7 @@ function resolveContextCap(providerName: string, modelName: string | undefined):
 
 // ─── Plugin entry ────────────────────────────────────────────────────
 
-export default async function plugin(bb: BbPluginApi) {
+export default async function plugin(bb: RiftPluginApi) {
   bb.log.info("bb-plugin-headroom loaded");
 
   // Settings are string/boolean/select only — parse thresholds from strings
